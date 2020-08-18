@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html style="background-color: #e3e6ff;">
+    <head></head>
+
+        <meta charset="UTF-8">
+
+
+        <link rel="shortcut icon" href="assets/logo/logo.jpg" type="image/x-icon">
+
+        <title>..::C A V I::..</title>
+
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+
+        <link rel="stylesheet" href="assets/css/uikit.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+      
+    
+    </head>
+<body>
+    <div class=" uk-hidden@s" style="z-index: 980;" uk-sticky="bottom: #offset">
+        <nav class="uk-navbar uk-navbar-container uk-margin">
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-toggle" href="#"  uk-toggle="target: #offcanvas-overlay">
+                    <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+                </a>
+            </div>
+        </nav>
+        <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
+            <div class="uk-offcanvas-bar">
+                
+        
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+        
+        
+                <h3>C A V I</h3>
+                <div class="uk-width-1-2@s uk-width-2-5@m">
+                    <ul class="uk-nav uk-nav-default">
+                        <li><a href="/"><span uk-icon="icon: home"></span> Inicio</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a href="/admin"><span uk-icon="sign-in"></span>  Entre ou cadastre-se</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-visible@s" style="z-index: 980;" uk-sticky="bottom: #offset">
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="/"><span uk-icon="icon: home"></span> Inicio</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="/admin"><span uk-icon="sign-in"></span>  Entre ou cadastre-se</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="uk-container uk-margin">
+        <div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m" style="border-radius: 15px 50px 30px;">
+
+            <div class="uk-margin">
+                <img src="assets/db_img/<%= imovel[0].imagem %>" style="width:100%;height: 100%; border-radius: 15px 50px 30px;" uk-svg>
+            </div>
+            <ul class="uk-list uk-list-striped">
+                <li>
+                    <div class="uk-margin">
+                        <strong>Nome do Vendedor:</strong><%= imovel[0].nome_do_vendedor %> 
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin">
+                        <strong>Categoria:</strong> <%= imovel[0].categoria %>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin">
+                        <strong>Tipo de Anuncio:</strong> <%= imovel[0].tipo_de_anuncio %>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin">
+                        <strong>Valor:</strong> $ <%= imovel[0].valor %>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin">
+                        <strong>Bairro:</strong> <%= imovel[0].bairro %>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin">
+                        <strong>Rua:</strong> <%= imovel[0].rua %>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin">
+                        <strong>Numero:</strong> <%= imovel[0].numero %>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin">
+                        <strong>Telefone:</strong> 	<%= imovel[0].telefone %>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-margin">
+                        <strong>Descrição:</strong><br><%= imovel[0].descricao %>
+                    </div>
+                </li>
+            </ul>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html style="background-color: #e3e6ff;">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <script type="text/javascript" src="assets/js/script.js"></script>
+        <title>..::C A V I::..</title>
+
+        <link rel="shortcut icon" href="assets/logo/logo.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/uikit.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <!-- UIkit JS -->
+        <script src="assets/js/uikit.min.js"></script>
+        <script src="assets/js/uikit-icons.min.js"></script>
+      
+    </head>
+    <body>
+        <!-- NavBar -->
+        <div class=" uk-hidden@s" style="z-index: 980;" uk-sticky="bottom: #offset">
+            <nav class="uk-navbar uk-navbar-container uk-margin">
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-toggle" href="#"  uk-toggle="target: #offcanvas-overlay">
+                        <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+                    </a>
+                </div>
+            </nav>
+            <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
+                <div class="uk-offcanvas-bar">
+                    
+            
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+            
+            
+                    <h3>C A V I</h3>
+                    <div class="uk-width-1-2@s uk-width-2-5@m">
+                        <ul class="uk-nav uk-nav-default">
+                            <li><a href="/"><span uk-icon="icon: home"></span> Inicio</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="/admin"><span uk-icon="sign-in"></span>  Entre ou cadastre-se</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-visible@s" style="z-index: 980;" uk-sticky="bottom: #offset">
+            <nav class="uk-navbar-container" uk-navbar>
+                <div class="uk-navbar-left">
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="/"><span uk-icon="icon: home"></span> Inicio</a></li>
+                    </ul>
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="/admin"><span uk-icon="sign-in"></span>  Entre ou cadastre-se</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="uk-container uk-margin">
+
+            <div class="uk-card-default uk-padding uk-margin uk-text-center uk-flex uk-flex-cente" style="border-radius: 10px 10px 10px;">
+                <form class="uk-grid-small" uk-grid>
+                    <legend class="uk-legend"><h1 style="color:#1da1f2;">Qual o seu imovel Ideal?</h1></legend>
+                    <legend class="uk-legend"><h4 style="color:#1da1f2;">Se prefirir, voce pode filtrar os imoveis com as caracteristicas que quiser!</h4></legend>
+                    <div class="uk-width-1-2@s">
+                        <input class="uk-input" type="text" nome="bairro" id="bairro" placeholder="Bairro">
+                    </div>
+                    <div class="uk-width-1-2@s">
+                        <select class="uk-select" id="form-stacked-select" name="categoria">
+                            <option disabled="" class="uk-text-bold">-- Residencial/urbano --</option>
+                            <option value="Casa"> Casa </option>
+                            <option value="Casa - condomínio"> Casa - condomínio </option>
+                            <option value="Casa - kitnet"> Casa - kitnet</option>
+                            <option value="Sobrado"> Sobrado </option>
+                            <option value="Apartamento"> Apartamento </option>
+                            <option value="Terreno"> Terreno </option>
+                            <option value="Terreno - condomínio"> Terreno - condomínio </option>
+    
+                            <option disabled="" class="uk-text-bold">-- Residencial/Rural --</option>
+                            <option value="Terreno"> Terreno </option>
+                            <option value="Fazenda"> Fazenda </option>
+                            <option value="Chacara"> Chacara </option>
+                            <option value="Sitio"> Sitio </option>
+    
+                            <option disabled="" class="uk-text-bold">-- Comercial --</option>
+                            <option value="Area"> Area </option>
+                            <option value="Casa - Comercial"> Casa Comercial </option>
+                            <option value="Sala"> Sala </option>
+                            <option value="Salão"> Salão </option>
+                        </select>
+                    </div>
+                    <div class="uk-width-1-2@s">
+                        <select class="uk-select" id="form-stacked-select" name="tipo_de_anuncio">
+                            <option value="Venda"> Venda </option>
+                            <option value="Aluguel"> Aluguel </option>
+                        </select>
+                    </div>
+                    <div class="uk-width-1-2@s">
+                        <input class="uk-input" placeholder="Valor R$:" type="text" name="valor" onKeyPress="return(moeda(this,'.',',',event))">
+                    </div>
+                    <div class="uk-width-1-1@s">
+                        <a class="uk-button uk-button-default" href="#" uk-icon="search" style="background-color: #1da1f2; color: white; border-radius: 10px 10px 10px;">Filtar </a>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="uk-flex uk-flex-center uk-child-width-1-3@m" uk-grid>
+                <% if (imoveis.length < 1) { %> 
+                    <!--erro-->
+                        <!-- <div class="title pb-5 col-12">
+                                
+                            Nenhum Imovel Encontrado    
+                            
+                        </div> -->
+                <% } else { %> 
+                    
+                    <% for (let i = 0; i < imoveis.length; i++) { %>
+                    
+                        <div>
+                            <div class="uk-card uk-card-default uk-text-center" style="border-radius: 15px 50px 30px;">
+                                <div class="uk-card-media-top">
+                                    <img src="assets/db_img/<%= imoveis[i].imagem %>" style="width:100%;height: 250px;border-radius: 15px 50px 0px;">
+                                </div>
+                                <div class="uk-card-body">
+                                    <h3 class="uk-card-title uk-text-bold"><%= imoveis[i].bairro %></h3>
+                                    <hr class="uk-divider-icon">
+                                    <p><%= imoveis[i].categoria %></p>
+                                    <p><%= imoveis[i].tipo_de_anuncio %></p>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a href="imovel?id_imovel=<%= imoveis[i].id_imovel %>" class="uk-button uk-button-primary" style="border-radius: 15px 15px 15px;"> $ <%= imoveis[i].valor %>  </a> 
+                                </div>
+                            
+                            </div>
+                        </div>
+                
+                <% 
+                    } 
+                }
+                %> 
+
+            </div>
+        </div>
+        <hr class="uk-divider-icon">
+        <div class="uk-container uk-margin">
+            <article class="uk-article uk-card uk-card-default uk-card-body">
+                <h1 class="uk-article-title"><a class="uk-link-reset" href="">C A V I "Compra Alguel e Venda de Imoveis"</a></h1>
+                <p class="uk-article-meta">Inicio do Projeto: Janeiro 2018.<p>
+                    <ul uk-accordion>
+                        <li>
+                            <a class="uk-accordion-title" href="#">Ler Mais +</a>
+                            <div class="uk-accordion-content">
+                                <p class="uk-text-lead uk-text-justify">Sabemos que um dia teremos que desapegar-nos de algo, um exemplo que vemos com frequência, é desprender-se de um imóvel, quando isso acontecer temos que ir a procura de uma nova moradia. Vender, alugar ou comprar um imóvel, aos olhos de muitas pessoas podem parecer tarefas muito simples, com tudo em uma pesquisa de campo que fizemos com 40 pessoas constatou que mais de 65% delas tem uma dificuldade em executar essas tarefas, por conta de muitos fatores como os meios de locomover-se, mercantilizar e adquirir um imóvel em uma região almejada, também com essa pesquisa podemos analisar que a população tem uma grande dificuldade em comprar um imóvel'</p>        
+                            </div>
+                        </li>
+               </article>
+        </div>
+    </body>
+</html>
